@@ -96,7 +96,7 @@ genre_counts = (
 
 genre_counts.columns = ["genre", "count"]
 
-Reds = [ "#E50914","#B20710","#8B0000","#FF3B3B","#C41E3A","#DC143C","#A40000","#FF6F61","#D72638","#C70039","#900C3F","#AD1457","#F44336"]
+Reds = ["#E50914","#B20710","#8B0000","#FF3B3B","#C41E3A","#DC143C","#A40000","#FF6F61","#D72638","#C70039","#900C3F","#AD1457","#F44336"]
 
 pie_chart = (
     alt.Chart(genre_counts)
@@ -104,7 +104,7 @@ pie_chart = (
     .encode(
         theta=alt.Theta("count:Q", sort="-x"),
         color=alt.Color(
-            "genre :N",
+            "genre:N",
             scale=alt.Scale(range=Reds),
             legend=alt.Legend(title="Genre")
         ),
