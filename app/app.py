@@ -59,7 +59,7 @@ col4.metric("Longest Binge Streak (days)", longest_streak)
 
 st.divider()
 
-st.subheader("📈 Watch Time Over Months")
+st.subheader("Watch Time Over Months")
 
 data["month"] = data["start_time"].dt.month
 monthly_watch_hours = (
@@ -83,7 +83,7 @@ chart = (
 
 st.altair_chart(chart, use_container_width=True)
 
-st.subheader("🎭 Most Watched Genres")
+st.subheader("Most Watched Genres")
 
 genre_counts = (
     data["genre"]
@@ -119,7 +119,7 @@ pie_chart = (
 st.altair_chart(pie_chart, use_container_width=True)
 
 
-st.subheader("🎬 Most Watched Titles")
+st.subheader("Most Watched Titles")
 
 title_watch_time = (
     data.groupby("title")["duration"]
@@ -144,7 +144,7 @@ chart = (
 st.altair_chart(chart, use_container_width=True)
 
 
-st.subheader("📺 Movies vs Series")
+st.subheader("Movies vs Series")
 
 content_type = (
     data.groupby("media_type")["duration"]
@@ -168,7 +168,7 @@ chart = (
 st.altair_chart(chart, use_container_width=True)
 
 
-st.subheader("🕒 Watch Time by Hour of Day")
+st.subheader("Watch Time by Hour of Day")
 
 hourly_watch = (
     data.groupby(data["start_time"].dt.hour)["duration"]
@@ -193,7 +193,7 @@ st.altair_chart(chart, use_container_width=True)
 
 
 st.divider()
-st.subheader("🔍 Key Insights")
+st.subheader("Key Insights")
 
 st.markdown(
     f"""
