@@ -100,7 +100,7 @@ Reds = ["#E50914", "#B20710", "#8C1515", "#FF4C4C", "#FF6F61", "#D72638", "#C700
 
 pie_chart = (
     alt.Chart(genre_counts)
-    .mark_arc(innerRadius=50, stroke=) 
+    .mark_arc(innerRadius=50, stroke='#fff', strokeWidth=1) 
     .encode(
         theta=alt.Theta(field="count", type="quantitative"),
         color=alt.Color(
