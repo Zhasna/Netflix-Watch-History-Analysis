@@ -85,29 +85,35 @@ st.altair_chart(chart, use_container_width=True)
 
 st.subheader("🎭 Most Watched Genres")
 
-genres = (
+genre_counts = (
     data["genre"]
     .dropna()
     .str.split(", ")
     .explode()
     .value_counts()
-    .head(10)
+    .reset_index()
 )
 
-genres_df = genres.reset_index()
-genres_df.columns = ["genre", "count"]
+genre_counts.columns = ["genre", "count"]
 
-chart = (
-    alt.Chart(genres_df)
-    .mark_bar(color="#A50A12")
+
+pie_chart = (
+    alt.Chart(genre_counts)
+    .mark_arc(innerRadius=50) 
     .encode(
-        x=alt.X("genre:O", title="Genre", sort="-y"),
-        y=alt.Y("count:Q", title="Count")
+        theta=alt.Theta(field="count", type="quantitative"),
+        color=alt.Color(
+            field="genre",
+            type="nominal",
+            scale=alt.Scale(scheme="reds"),
+            legend=alt.Legend(title="Genre")
+        ),
+        tooltip=["genre", "count"]
     )
-    .properties(title="Most Watched Genres")
+    .properties(title="Genre Distribution")
 )
 
-st.altair_chart(chart, use_container_width=True)
+st.altair_chart(pie_chart, use_container_width=True)
 
 
 st.subheader("🎬 Most Watched Titles")
