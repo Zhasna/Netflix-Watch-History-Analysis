@@ -11,7 +11,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
     return pd.read_csv(
-        "../data/processed/enriched_viewing.csv",
+        "data/processed/enriched_viewing.csv",
         parse_dates=["start_time"]
     )
 
