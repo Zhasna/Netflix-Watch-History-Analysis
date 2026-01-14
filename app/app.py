@@ -96,20 +96,22 @@ genre_counts = (
 
 genre_counts.columns = ["genre", "count"]
 
-Reds = ["#E50914", "#B20710", "#8C1515", "#FF4C4C", "#FF6F61", "#D72638", "#C70039", '#900C3F']
+Reds = [ "#E50914","#B20710","#8B0000","#FF3B3B","#C41E3A","#DC143C","#A40000","#FF6F61","#D72638","#C70039","#900C3F","#AD1457","#F44336"]
 
 pie_chart = (
     alt.Chart(genre_counts)
-    .mark_arc(innerRadius=50, stroke='#fff', strokeWidth=1) 
+    .mark_arc(opacity=0.95) 
     .encode(
-        theta=alt.Theta(field="count", type="quantitative"),
+        theta=alt.Theta("count:Q", sort="-x"),
         color=alt.Color(
-            field="genre",
-            type="nominal",
+            "genre :N",
             scale=alt.Scale(range=Reds),
             legend=alt.Legend(title="Genre")
         ),
-        tooltip=["genre", "count"]
+        tooltip=[
+            alt.Tooltip("genre:N", title="Genre"),
+            alt.Tooltip("count:Q", title="Count")
+        ]
     )
     .properties(title="Genre Distribution")
 )
