@@ -2,6 +2,8 @@
 
 An end-to-end data project that analyzes personal Netflix viewing history and presents insights through an interactive Streamlit dashboard, inspired by Netflix Wrapped.
 ---
+## Live Demo: https://netflix-watch-history-analysis.streamlit.app/
+---
 ## Project Overview
 
 This project demonstrates how raw, real-world data can be transformed into meaningful insights using a structured data pipeline. Starting from Netflix viewing activity data, the project involves data cleaning, enrichment using an external API, exploratory analysis, and an interactive dashboard for visualization.
